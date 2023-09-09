@@ -6,7 +6,14 @@
 package za.ac.cput.domain.plan;
 
 import jakarta.persistence.Entity;
-public abstract class Plan {
+import jakarta.persistence.Id;
+
+import java.io.Serializable;
+
+@Entity
+public abstract class Plan implements Serializable {
+    @Id
+    protected String planId;
     protected String interior;
     protected String exterior;
     protected String duration;
@@ -15,6 +22,10 @@ public abstract class Plan {
 
     abstract void setAttributes();
     abstract String displayPlan();
+
+    public String getPlanId() {
+        return planId;
+    }
 
     public String getInterior() {
         return interior;

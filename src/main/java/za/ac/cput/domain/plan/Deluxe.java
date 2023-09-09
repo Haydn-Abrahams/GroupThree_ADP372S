@@ -5,9 +5,13 @@
 
 package za.ac.cput.domain.plan;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.IdClass;
+
 import java.io.Serializable;
 
-
+@Entity
+@IdClass(Plan.class)
 public class Deluxe extends Plan implements Serializable {
     protected Deluxe() {
     }
