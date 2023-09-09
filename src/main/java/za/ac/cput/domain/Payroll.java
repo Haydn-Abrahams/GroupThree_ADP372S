@@ -1,12 +1,14 @@
 package za.ac.cput.domain;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 public class Payroll implements Serializable {
+    @Id
     private String employeeCode;
     private String title;
     private int totalDaysWorked;
