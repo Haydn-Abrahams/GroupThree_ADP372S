@@ -11,14 +11,14 @@ public class Employee implements Serializable {
     @Id
     private String employeeCode;
     @Id
-    private long id;
+    private int id;
     private String firstName;
     private String lastName;
 
     //Constructors
     public Employee() {
     }
-    public Employee(String employeeCode, long id, String firstName, String lastName) {
+    public Employee(String employeeCode, int id, String firstName, String lastName) {
         this.employeeCode = employeeCode;
         this.id = id;
         this.firstName = firstName;
@@ -37,7 +37,7 @@ public class Employee implements Serializable {
     public String getEmployeeCode() {
         return employeeCode;
     }
-    public long getId() {
+    public int getId() {
         return id;
     }
     public String getFirstName() {
@@ -61,7 +61,7 @@ public class Employee implements Serializable {
     //Builder Constructors
     public static class Builder {
         private String employeeCode;
-        private long id;
+        private int id;
         private String firstName;
         private String lastName;
 
@@ -70,7 +70,7 @@ public class Employee implements Serializable {
             this.employeeCode = employeeCode;
             return this;
         }
-        public Builder setId(long id) {
+        public Builder setId(int id) {
             this.id = id;
             return this;
         }
