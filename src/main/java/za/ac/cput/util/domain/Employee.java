@@ -11,14 +11,14 @@ public class Employee implements Serializable {
     @Id
     private String employeeCode;
     @Id
-    private int id;
+    private long id;
     private String firstName;
     private String lastName;
 
     //Constructors
     public Employee() {
     }
-    public Employee(String employeeCode, int id, String firstName, String lastName) {
+    public Employee(String employeeCode, long id, String firstName, String lastName) {
         this.employeeCode = employeeCode;
         this.id = id;
         this.firstName = firstName;
@@ -37,7 +37,7 @@ public class Employee implements Serializable {
     public String getEmployeeCode() {
         return employeeCode;
     }
-    public int getId() {
+    public long getId() {
         return id;
     }
     public String getFirstName() {
@@ -61,27 +61,36 @@ public class Employee implements Serializable {
     //Builder Constructors
     public static class Builder {
         private String employeeCode;
-        private int id;
+        private long id;
         private String firstName;
         private String lastName;
 
+        //Builder Setters
+        public Builder setEmployeeCode(String employeeCode) {
+            this.employeeCode = employeeCode;
+            return this;
+        }
+        public Builder setId(long id) {
+            this.id = id;
+            return this;
+        }
+        public Builder setFirstName(String firstName) {
+            this.firstName = firstName;
+            return this;
+        }
+        public Builder setLastName(String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
+
+        public Builder copy(Employee employee){
+            this.employeeCode = employee.employeeCode;
+            this.id= employee.id;
+            this.firstName = employee.firstName;
+            this.lastName= employee.lastName;
+            return this;
+        }
+
+        public Employee build(){return  new Employee(this);}
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
