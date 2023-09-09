@@ -5,7 +5,9 @@
 
 package za.ac.cput.domain.plan;
 
-public class Basic extends Plan{
+import java.io.Serializable;
+
+public class Basic extends Plan implements Serializable {
     protected Basic(){}
 
     private Basic(Builder builder){

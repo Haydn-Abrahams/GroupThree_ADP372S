@@ -5,7 +5,11 @@
 
 package za.ac.cput.domain.plan;
 
-public class Premium extends Plan{
+import jakarta.persistence.Entity;
+
+import java.io.Serializable;
+
+public class Premium extends Plan implements Serializable {
     protected Premium(){}
 
     private Premium(Builder builder){

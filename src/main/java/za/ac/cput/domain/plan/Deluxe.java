@@ -5,7 +5,10 @@
 
 package za.ac.cput.domain.plan;
 
-public class Deluxe extends Plan {
+import java.io.Serializable;
+
+
+public class Deluxe extends Plan implements Serializable {
     protected Deluxe() {
     }
 

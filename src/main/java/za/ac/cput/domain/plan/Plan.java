@@ -5,6 +5,7 @@
 
 package za.ac.cput.domain.plan;
 
+import jakarta.persistence.Entity;
 public abstract class Plan {
     protected String interior;
     protected String exterior;
