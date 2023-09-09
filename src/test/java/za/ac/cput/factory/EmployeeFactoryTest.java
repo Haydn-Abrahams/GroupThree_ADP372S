@@ -1,11 +1,9 @@
-package za.ac.cput.util.factory;
+package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.Employee;
-import za.ac.cput.factory.EmployeeFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 
 class EmployeeFactoryTest {
 
