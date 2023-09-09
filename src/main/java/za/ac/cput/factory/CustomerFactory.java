@@ -1,7 +1,7 @@
-package za.ac.cput.util.factory;
+package za.ac.cput.factory;
 
 import za.ac.cput.util.Helper;
-import za.ac.cput.util.domain.Customer;
+import za.ac.cput.domain.Customer;
 
 public class CustomerFactory {
 

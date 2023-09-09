@@ -1,8 +1,8 @@
 package za.ac.cput.util.factory;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-import za.ac.cput.util.domain.Employee;
+import za.ac.cput.domain.Employee;
+import za.ac.cput.factory.EmployeeFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 
