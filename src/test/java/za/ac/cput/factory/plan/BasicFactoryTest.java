@@ -13,7 +13,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class BasicFactoryTest {
     @Test
     void basicTest(){
-        //Basic basic = new BasicFactory.createBasic();
+        Basic basic = BasicFactory.createBasic("WASH, WAX", "VACCUM, WIPE-DOWN", "1-2 HOURS", 500, "NONE");
+        assertNotNull(basic);
+        System.out.println(basic.displayPlan());
     }
 
 }
