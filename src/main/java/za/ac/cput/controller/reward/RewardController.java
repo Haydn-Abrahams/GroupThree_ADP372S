@@ -8,15 +8,20 @@ package za.ac.cput.controller.reward;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.domain.reward.Reward;
-import za.ac.cput.service.impl.reward.RewardServiceImpl;
+import za.ac.cput.service.reward.RewardService;
 
 import java.util.Set;
 
 @RestController
 @RequestMapping("/reward")
 public class RewardController {
+
+    private RewardService service;
     @Autowired
-    private RewardServiceImpl service;
+    public RewardController(RewardService service) {
+        this.service = service;
+    }
+
 
     @PostMapping("/create")
     public Reward create(@RequestBody Reward reward){
