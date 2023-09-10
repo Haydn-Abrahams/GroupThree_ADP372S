@@ -2,14 +2,17 @@ package za.ac.cput.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
 
 import java.io.Serializable;
 
 @Entity
-public class Employee {
+@IdClass(Employee.class)
+public class Employee implements Serializable {
 
     @Id
     private String employeeCode;
+    @Id
     private int id;
     private String firstName;
     private String lastName;
@@ -18,7 +21,7 @@ public class Employee {
     //Constructors
     public Employee() {
     }
-    public Employee(String employeeCode, int id, String firstName, String lastName,String password) {
+    public Employee(String employeeCode, int id, String firstName, String lastName, String password) {
         this.employeeCode = employeeCode;
         this.id = id;
         this.firstName = firstName;
@@ -32,7 +35,7 @@ public class Employee {
         this.id = builder. id;
         this.firstName = builder. firstName;
         this.lastName = builder. lastName;
-        this.password = builder. password;
+        this.password = builder.password;
     }
 
     //Getters
@@ -48,10 +51,14 @@ public class Employee {
     public String getLastName() {
         return lastName;
     }
-    public String getPassword() {return password;
+
+    public String getPassword() {
+        return password;
     }
 
     //toString
+
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -60,7 +67,6 @@ public class Employee {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", password='" + password + '\'' +
-
                 '}';
     }
 
@@ -70,6 +76,7 @@ public class Employee {
         private int id;
         private String firstName;
         private String lastName;
+
         private String password;
 
         //Builder Setters
@@ -100,7 +107,7 @@ public class Employee {
             this.id= employee.id;
             this.firstName = employee.firstName;
             this.lastName= employee.lastName;
-            this.password= employee.password;
+            this.password = employee.password;
             return this;
         }
 
