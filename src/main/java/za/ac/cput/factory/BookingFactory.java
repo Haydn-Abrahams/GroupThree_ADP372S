@@ -8,8 +8,8 @@ import java.sql.Time;
 import java.util.Date;
 
 public class BookingFactory {
-    public static Booking buildBooking(Date date, Time time, Customer customerId){
-        if(Helper.isNullorEmpty(String.valueOf(date)) || Helper.isNullorEmpty(String.valueOf(time) || Helper.isNullorEmpty(customerId))){
+    public static Booking buildBooking(Date date, Time time, String customerId){
+        if(Helper.isNullorEmpty(String.valueOf(date)) || Helper.isNullorEmpty(String.valueOf(time)) || Helper.isNullorEmpty(customerId)){
             return null;
         }
 

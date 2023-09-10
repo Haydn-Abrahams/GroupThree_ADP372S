@@ -13,7 +13,7 @@ public class EmployeeFactory {
         String employeeCode = Helper.generateID();
 
         return new Employee.Builder()
-                .setId(id)
+                .setId((int) id)
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .setEmployeeCode(employeeCode)
