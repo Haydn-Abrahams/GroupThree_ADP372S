@@ -4,18 +4,19 @@ import za.ac.cput.util.Helper;
 import za.ac.cput.domain.Employee;
 
 public class EmployeeFactory {
+    public static Employee createEmployee( int id, String firstName, String lastName, String password) {
 
-    public static Employee createEmployee(long id , String firstName, String lastName){
-
-        if(Helper.isNullorEmpty(String.valueOf(id)) || Helper.isNullorEmpty(firstName) || Helper.isNullorEmpty(lastName))
+        if(Helper.isNullorEmpty(String.valueOf(id)) || Helper.isNullorEmpty(firstName)
+                || Helper.isNullorEmpty(lastName)|| Helper.isNullorEmpty(password))
             return null;
 
         String employeeCode = Helper.generateID();
 
         return new Employee.Builder()
-                .setId((int) id)
+                .setId(id)
                 .setFirstName(firstName)
                 .setLastName(lastName)
+                .setPassword(password)
                 .setEmployeeCode(employeeCode)
                 .build();
     }
