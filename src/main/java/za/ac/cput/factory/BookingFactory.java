@@ -1,12 +1,11 @@
 package za.ac.cput.factory;
 
 import za.ac.cput.domain.Booking;
+import za.ac.cput.domain.Customer;
 import za.ac.cput.util.Helper;
 
 import java.sql.Time;
 import java.util.Date;
-
-import static java.lang.String.*;
 
 public class BookingFactory {
     public static Booking buildBooking(Date date, Time time, String customerId){

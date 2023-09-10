@@ -1,4 +1,4 @@
-package za.ac.cput.respository;
+package za.ac.cput.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import za.ac.cput.domain.VehicleType;
