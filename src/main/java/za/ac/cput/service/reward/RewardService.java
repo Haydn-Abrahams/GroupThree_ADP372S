@@ -20,6 +20,4 @@ public interface RewardService{
     Reward read(String rewardsId);
 
     Reward update(Reward reward);
-
-    boolean delete(String rewardId);
 }

@@ -13,5 +13,4 @@ import java.util.List;
 
 @Repository
 public interface RewardRepository extends JpaRepository<Reward, String> {
-    void deleteAllById(String rewardId);
 }

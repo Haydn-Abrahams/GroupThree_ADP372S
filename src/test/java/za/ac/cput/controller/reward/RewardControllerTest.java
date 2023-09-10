@@ -17,6 +17,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import za.ac.cput.domain.Customer;
 import za.ac.cput.domain.reward.Reward;
 import za.ac.cput.domain.reward.Tier;
 import za.ac.cput.factory.reward.RewardFactory;
@@ -53,14 +54,14 @@ class RewardControllerTest {
     @Disabled
     @Test
     void c_update() {
-        //Reward updated = new Reward.Builder().copy(reward.earnPoints(05).build();
-    }
-
-    @Test
-    void d_delete() {
-        String url = baseURL + "/delete" + reward.getRewardId();
-        System.out.println("URL" + url);
-        restTemplate.delete(url);
+        Reward updated = new Reward.Builder()
+                .copy(reward)
+                .setPoints(505)
+                .build();
+        String url = baseURL + "/update";
+        System.out.println("Post data: " + updated);
+        ResponseEntity <Reward> response = restTemplate.postForEntity(url, updated, Reward.class);
+        assertNotNull(response.getBody());
     }
 
     @Test

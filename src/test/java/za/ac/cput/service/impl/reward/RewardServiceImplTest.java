@@ -26,7 +26,7 @@ class RewardServiceImplTest {
     Reward reward = RewardFactory.createReward(500, Tier.PLATINUM);
 
     @Test
-    void e_getAll() {
+    void d_getAll() {
         System.out.println("Get All:");
         System.out.println(service.getAll());
     }
@@ -51,10 +51,5 @@ class RewardServiceImplTest {
                 .copy(reward)
                 .setPoints(505)
                 .build();
-    }
-
-    @Disabled
-    @Test
-    void d_delete() {
     }
 }

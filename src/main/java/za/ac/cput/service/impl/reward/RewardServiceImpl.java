@@ -43,13 +43,4 @@ public class RewardServiceImpl implements RewardService {
         return null;
     }
 
-    @Override
-    public boolean delete(String rewardId){
-        if(this.repository.existsById(rewardId)){
-            this.repository.deleteAllById(rewardId);
-            return true;
-        }
-        return false;
-    }
-
 }

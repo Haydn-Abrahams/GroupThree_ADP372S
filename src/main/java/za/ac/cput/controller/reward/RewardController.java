@@ -38,10 +38,6 @@ public class RewardController {
         return service.update(reward);
     }
 
-    @DeleteMapping("/delete{id}")
-    public boolean delete(@PathVariable String rewardId){
-        return service.delete(rewardId);
-    }
 
     @GetMapping("/getAll")
     public Set<Reward> getAll(){
