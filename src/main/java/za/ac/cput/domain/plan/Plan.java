@@ -20,8 +20,13 @@ public abstract class Plan implements Serializable {
     protected double price;
     protected String additionalServices;
 
-    abstract void setAttributes();
-    abstract String displayPlan();
+    public Plan(){}
+
+    public Plan(String planId){
+        this.planId = planId;
+    }
+
+    public abstract String displayPlan();
 
     public String getPlanId() {
         return planId;

@@ -13,6 +13,5 @@ import java.util.List;
 
 @Repository
 public interface RewardRepository extends JpaRepository<Reward, String> {
-    public List<Reward> findByRewardId (String rewardId);
-
+    void deleteAllById(String rewardId);
 }

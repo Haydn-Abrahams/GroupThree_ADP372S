@@ -5,10 +5,21 @@
 
 package za.ac.cput.service.reward;
 
-import za.ac.cput.domain.reward.Reward;
 
-public interface RewardService {
-    Reward calculate(Reward reward);
-    Reward read(Reward reward);
+import za.ac.cput.domain.reward.Reward;
+import za.ac.cput.service.IService;
+
+import java.util.List;
+import java.util.Set;
+
+public interface RewardService extends IService {
+    public Set<Reward> getAll();
+
+    Reward create(Reward reward);
+
+    Reward read(String rewardsId);
+
     Reward update(Reward reward);
+
+    boolean delete(String rewardId);
 }
