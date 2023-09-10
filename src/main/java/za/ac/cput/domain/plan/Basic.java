@@ -13,9 +13,13 @@ import java.io.Serializable;
 @Entity
 @IdClass(Plan.class)
 public class Basic extends Plan implements Serializable {
-    protected Basic(){}
+    public Basic(){}
+    protected Basic(String planId){
+        super(planId);
+    }
 
     private Basic(Builder builder){
+        this.planId = builder.planId;
         this.interior = builder.interior;
         this.exterior = builder.exterior;
         this.duration = builder.duration;
@@ -24,17 +28,9 @@ public class Basic extends Plan implements Serializable {
     }
 
     @Override
-    void setAttributes() {
-        interior = "WASH, WAX";
-        exterior = "VACCUM, WIPE-DOWN";
-        duration = "1-2 hours";
-        price = 500.0;
-        additionalServices = "None";
-    }
-
-    @Override
     public String displayPlan() {
         return "Basic{" +
+                "plaId='" + planId + '\'' +
                 "interior='" + interior + '\'' +
                 ", exterior='" + exterior + '\'' +
                 ", duration='" + duration + '\'' +
@@ -44,38 +40,45 @@ public class Basic extends Plan implements Serializable {
     }
 
     public static class Builder {
+        protected String planId;
         protected String interior;
         protected String exterior;
         protected String duration;
         protected double price;
         protected String additionalServices;
 
+        public Builder setPlanId(String planId) {
+            this.planId = planId;
+            return this;
+        }
+
         public Builder setInterior(String interior) {
-            this.interior = interior;
+            this.interior = "WASH, WAX";
             return this;
         }
 
         public Builder setExterior(String exterior) {
-            this.exterior = exterior;
+            this.exterior = "VACCUM, WIPE-DOWN";
             return this;
         }
 
         public Builder setDuration(String duration) {
-            this.duration = duration;
+            this.duration = "1-2 hours";
             return this;
         }
 
         public Builder setPrice(double price) {
-            this.price = price;
+            this.price = 500.00;
             return this;
         }
 
         public Builder setAdditionalServices(String additionalServices) {
-            this.additionalServices = additionalServices;
+            this.additionalServices = "NONE";
             return this;
         }
 
         public Builder copy(Basic basic){
+            this.planId = basic.planId;
             this.interior = basic.interior;
             this.exterior = basic.exterior;
             this.duration = basic.duration;
