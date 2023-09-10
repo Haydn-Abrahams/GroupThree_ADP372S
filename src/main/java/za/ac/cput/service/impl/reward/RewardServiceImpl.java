@@ -14,7 +14,7 @@ import za.ac.cput.service.reward.RewardService;
 import java.util.Set;
 
 @Service
-public abstract class RewardServiceImpl implements RewardService {
+public class RewardServiceImpl implements RewardService {
     private RewardRepository repository;
     @Autowired
     private RewardServiceImpl(RewardRepository repository){

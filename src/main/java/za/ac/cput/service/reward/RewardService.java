@@ -12,7 +12,7 @@ import za.ac.cput.service.IService;
 import java.util.List;
 import java.util.Set;
 
-public interface RewardService extends IService {
+public interface RewardService{
     public Set<Reward> getAll();
 
     Reward create(Reward reward);
