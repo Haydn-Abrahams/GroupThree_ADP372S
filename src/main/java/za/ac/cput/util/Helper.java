@@ -2,6 +2,7 @@ package za.ac.cput.util;
 
 import org.apache.commons.validator.EmailValidator;
 
+import java.util.Random;
 import java.util.UUID;
 
 public class Helper {
@@ -18,5 +19,11 @@ public class Helper {
 
     public static String generateID() {
         return UUID.randomUUID().toString();
+    }
+
+    public static long generateRandomLong() {
+        Random random = new Random();
+        long randomLog = random.nextLong();
+        return Math.abs(randomLog);
     }
 }
