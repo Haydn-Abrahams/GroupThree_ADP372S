@@ -1,4 +1,4 @@
-package service;
+package za.ac.cput.service.impl;
 
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
