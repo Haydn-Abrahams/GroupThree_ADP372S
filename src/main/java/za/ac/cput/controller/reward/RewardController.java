@@ -12,16 +12,16 @@ import za.ac.cput.service.reward.RewardService;
 
 import java.util.Set;
 
-@RestController
+
 @RequestMapping("/reward")
+@RestController
 public class RewardController {
 
-    private RewardService service;
+    private final RewardService service;
     @Autowired
     public RewardController(RewardService service) {
         this.service = service;
     }
-
 
     @PostMapping("/create")
     public Reward create(@RequestBody Reward reward){

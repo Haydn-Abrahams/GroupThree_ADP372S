@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class VehicleTypeServiceImplTest {
 
     @Autowired
-    private static VehicleTypeService vehicleTypeService;
+    private VehicleTypeService vehicleTypeService;
 
     private static VehicleType vehicleType = VehicleTypeFactory.buildVehicleType("Yamaha", "Nissan Almera", "Quantum", "Iveco");
 

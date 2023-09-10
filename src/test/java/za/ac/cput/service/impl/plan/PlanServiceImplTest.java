@@ -29,7 +29,7 @@ class PlanServiceImplTest {
     Plan deluxe = PlanFactory.createDeluxe();
     Plan premium = PlanFactory.createPremium();
 
-    @Disabled
+    //@Disabled
     @Order(1)
     @Test
     void testGetPlanById(){
@@ -38,7 +38,7 @@ class PlanServiceImplTest {
         System.out.println(result);
     }
 
-    @Disabled
+    //@Disabled
     @Order(2)
     @Test
     void testGetAllPlans(){

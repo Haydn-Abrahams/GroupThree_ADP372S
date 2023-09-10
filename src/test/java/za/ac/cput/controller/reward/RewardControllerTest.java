@@ -51,7 +51,7 @@ class RewardControllerTest {
         System.out.println(response.getBody());
     }
 
-    @Disabled
+    //@Disabled
     @Test
     void c_update() {
         Reward updated = new Reward.Builder()

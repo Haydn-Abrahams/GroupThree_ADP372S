@@ -24,13 +24,13 @@ public class EmployeeServiceImplTest {
     @Test
     void a_create() {
         Employee created = employeeService.create(employee);
-        assertEquals(employee.getEmployeeCode(), created.getEmployeeCode());
+        assertEquals(employee.getId(), created.getId());
         System.out.println(created);
     }
 
     @Test
     void b_read() {
-        Employee read = employeeService.read(employee.getEmployeeCode());
+        Employee read = employeeService.read(String.valueOf(employee.getId()));
         assertNotNull(read);
         System.out.println("Read: " + read);
     }

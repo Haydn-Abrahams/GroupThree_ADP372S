@@ -21,16 +21,16 @@ import static org.junit.jupiter.api.Assertions.*;
 class BookingServiceImplTest {
 
     @Autowired
-    private static BookingService bookingService;
+    private BookingService bookingService;
 
     //@Autowired
     //private IBookingRepository bookingRepository;
 
-    private static final String CUSTOMER_ID = "12345";
-    private static Booking booking = BookingFactory.buildBooking(new Date(), new Time(System.currentTimeMillis()), CUSTOMER_ID);
+    private final String customerId = "12345";
+    private Booking booking = BookingFactory.buildBooking(new Date(), new Time(System.currentTimeMillis()), customerId);
 
     @Test
-    void create() {
+    void a_create() {
         Booking created = bookingService.create(booking);
         assertNotNull(created);
         assertEquals(booking.getBookingId(), created.getBookingId());
@@ -38,7 +38,7 @@ class BookingServiceImplTest {
     }
 
     @Test
-    void read() {
+    void b_read() {
         Booking read = bookingService.read(booking.getBookingId());
         assertNotNull(read);
         //assertEquals(booking.getBookingId(), read.getBookingId());
@@ -46,7 +46,7 @@ class BookingServiceImplTest {
     }
 
     @Test
-    void update() {
+    void c_update() {
         Booking updated = new Booking.Builder().copy(booking).setCustomerId("12346").build();
         updated = bookingService.update(updated);
         assertNotNull(updated);
@@ -60,14 +60,14 @@ class BookingServiceImplTest {
     }
 
     @Test
-    void delete() {
+    void e_delete() {
         boolean deleted = bookingService.delete(booking.getBookingId());
         assertTrue(deleted);
         System.out.println("Success: " + deleted);
     }
 
     @Test
-    void getAll() {
+    void d_getAll() {
         System.out.println("Show All");
         assertNotNull(bookingService.getAll());
     }

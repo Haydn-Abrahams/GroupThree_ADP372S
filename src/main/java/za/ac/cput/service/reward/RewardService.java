@@ -6,13 +6,14 @@
 package za.ac.cput.service.reward;
 
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.reward.Reward;
 import za.ac.cput.service.IService;
 
 import java.util.List;
 import java.util.Set;
-
-public interface RewardService{
+@Service
+public interface RewardService {
     public Set<Reward> getAll();
 
     Reward create(Reward reward);
