@@ -1,5 +1,6 @@
 package za.ac.cput.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
@@ -9,6 +10,7 @@ import java.util.Objects;
 @Entity
 public class Payroll implements Serializable {
     @Id
+    @Column(name = "employee_Code")
     private String employeeCode;
     private String title;
     private int totalDaysWorked;

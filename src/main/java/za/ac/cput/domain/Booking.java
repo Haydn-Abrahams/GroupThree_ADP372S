@@ -13,13 +13,13 @@ import java.util.Objects;
 public class Booking implements Serializable{
     @Id
     private String bookingId;
-    private Customer customerId;
+    private String customerId;
     private Date date;
     private Time time;
 
     public Booking(){}
 
-    public Booking(String bookingId, Customer customerId, Date date, Time time){
+    public Booking(String bookingId, String customerId, Date date, Time time){
         this.bookingId = bookingId;
         this.customerId = customerId;
         this.date = date;
@@ -37,7 +37,7 @@ public class Booking implements Serializable{
         return bookingId;
     }
 
-    public Customer getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
@@ -74,7 +74,7 @@ public class Booking implements Serializable{
 
     public static class Builder{
         private String bookingId;
-        private Customer customerId;
+        private String customerId;
         private Date date;
         private Time time;
 
@@ -83,7 +83,7 @@ public class Booking implements Serializable{
             return this;
         }
 
-        public Builder setCustomerId(Customer customerId) {
+        public Builder setCustomerId(String customerId) {
             this.customerId = customerId;
             return this;
         }

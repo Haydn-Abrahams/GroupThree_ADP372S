@@ -2,10 +2,12 @@ package za.ac.cput.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
 
 import java.io.Serializable;
 
 @Entity
+@IdClass(Employee.class)
 public class Employee implements Serializable {
 
     @Id
@@ -14,15 +16,17 @@ public class Employee implements Serializable {
     private int id;
     private String firstName;
     private String lastName;
+    private String password;
 
     //Constructors
     public Employee() {
     }
-    public Employee(String employeeCode, int id, String firstName, String lastName) {
+    public Employee(String employeeCode, int id, String firstName, String lastName, String password) {
         this.employeeCode = employeeCode;
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.password = password;
     }
 
     //private Builder Constructors
@@ -31,6 +35,7 @@ public class Employee implements Serializable {
         this.id = builder. id;
         this.firstName = builder. firstName;
         this.lastName = builder. lastName;
+        this.password = builder.password;
     }
 
     //Getters
@@ -46,7 +51,13 @@ public class Employee implements Serializable {
     public String getLastName() {
         return lastName;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
     //toString
+
 
     @Override
     public String toString() {
@@ -55,6 +66,7 @@ public class Employee implements Serializable {
                 ", id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 
@@ -64,6 +76,8 @@ public class Employee implements Serializable {
         private int id;
         private String firstName;
         private String lastName;
+
+        private String password;
 
         //Builder Setters
         public Builder setEmployeeCode(String employeeCode) {
@@ -83,11 +97,17 @@ public class Employee implements Serializable {
             return this;
         }
 
+        public Builder setPassword(String password) {
+            this.password = password;
+            return this;
+        }
+
         public Builder copy(Employee employee){
             this.employeeCode = employee.employeeCode;
             this.id= employee.id;
             this.firstName = employee.firstName;
             this.lastName= employee.lastName;
+            this.password = employee.password;
             return this;
         }
 

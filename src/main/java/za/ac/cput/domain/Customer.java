@@ -7,66 +7,64 @@ import jakarta.persistence.Id;
 import java.io.Serializable;
 
 @Entity
-public class Customer implements Serializable {
+public class Customer {
+
     @Id
     private String customerId;
-    private String firstname;
-
-    private String lastname;
-
+    private String firstName;
+    private String lastName;
     private String password;
 
     //Constructors
-    public Customer() {
-    }
-    public Customer(String customerId, String firstname, String lastname, String password) {
+    public Customer(){  }
+    public Customer(String customerId, String firstName, String lastName, String password) {
         this.customerId = customerId;
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.password = password;
     }
 
     //private Builder Constructors
-    private Customer(Builder builder){
-        this.customerId = builder. customerId;
-        this.firstname = builder. firstname;
-        this.lastname = builder. lastname;
-        this.password = builder. password;
+    private Customer (Builder builder){
+        this.customerId = builder.customerId;
+        this.firstName = builder.firstName;
+        this.lastName = builder.lastName;
+        this.password = builder.password;
     }
-
 
     //Getters
     public String getCustomerId() {
         return customerId;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
     public String getPassword() {
         return password;
     }
 
-    //toString
     @Override
     public String toString() {
         return "Customer{" +
                 "customerId='" + customerId + '\'' +
-                ", firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }
 
-    public static class Builder{
+    //Builder Constructors
+    public static class Builder {
+
         private String customerId;
-        private String firstname;
-        private String lastname;
+        private String firstName;
+        private String lastName;
         private String password;
 
         //Builder Setters
@@ -75,13 +73,13 @@ public class Customer implements Serializable {
             return this;
         }
 
-        public Builder setFirstname(String firstname) {
-            this.firstname = firstname;
+        public Builder setFirstName(String firstName) {
+            this.firstName = firstName;
             return this;
         }
 
-        public Builder setLastname(String lastname) {
-            this.lastname = lastname;
+        public Builder setLastName (String lastName) {
+            this.lastName = lastName;
             return this;
         }
 
@@ -91,13 +89,13 @@ public class Customer implements Serializable {
         }
 
         public Builder copy(Customer customer){
-            this.customerId = customer.customerId;
-            this.firstname = customer.firstname;
-            this.lastname= customer.lastname;
+            this.customerId= customer.customerId;
+            this.firstName = customer.firstName;
+            this.lastName= customer.lastName;
             this.password= customer.password;
             return this;
         }
 
-        public Customer build(){return new Customer(this);}
+        public Customer build(){return  new Customer(this);}
     }
 }
