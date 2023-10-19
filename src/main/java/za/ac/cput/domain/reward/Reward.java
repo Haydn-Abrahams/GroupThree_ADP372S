@@ -5,17 +5,16 @@
 
 package za.ac.cput.domain.reward;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
+@IdClass(Reward.class)
 public class Reward implements Serializable {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String rewardId;
     //private Customer customer;
     private Tier tier;

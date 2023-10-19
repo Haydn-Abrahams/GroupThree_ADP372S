@@ -13,10 +13,13 @@ import java.io.Serializable;
 @Entity
 @IdClass(Plan.class)
 public class Deluxe extends Plan implements Serializable {
-    protected Deluxe() {
+    public Deluxe(){}
+    protected Deluxe(String planId) {
+        super(planId);
     }
 
     private Deluxe(Builder builder) {
+        this.planId = builder.planId;
         this.interior = builder.interior;
         this.exterior = builder.exterior;
         this.duration = builder.duration;
@@ -25,17 +28,9 @@ public class Deluxe extends Plan implements Serializable {
     }
 
     @Override
-    void setAttributes() {
-        interior = "WASH, WAX, POLISH, CLAY BAR TREATMENT";
-        exterior = "VACCUM, WIPE-DOWN, UPHOLSTERY CLEANING, CARPET SHAMPOOING";
-        duration = "3-4 hours";
-        price = 2500.0;
-        additionalServices = "LEATHER RESTORATION, ENGINE BAY CLEANING";
-    }
-
-    @Override
     public String displayPlan() {
         return "Deluxe{" +
+                "plaId='" + planId + '\'' +
                 "interior='" + interior + '\'' +
                 ", exterior='" + exterior + '\'' +
                 ", duration='" + duration + '\'' +
@@ -45,38 +40,45 @@ public class Deluxe extends Plan implements Serializable {
     }
 
     public static class Builder {
+        protected String planId;
         protected String interior;
         protected String exterior;
         protected String duration;
         protected double price;
         protected String additionalServices;
 
+        public Builder setPlanId(String planId) {
+            this.planId = planId;
+            return this;
+        }
+
         public Builder setInterior(String interior) {
-            this.interior = interior;
+            this.interior = "WASH, WAX, POLISH, CLAY BAR TREATMENT";
             return this;
         }
 
         public Builder setExterior(String exterior) {
-            this.exterior = exterior;
+            this.exterior = "VACCUM, WIPE-DOWN, UPHOLSTERY CLEANING, CARPET SHAMPOOING";;
             return this;
         }
 
         public Builder setDuration(String duration) {
-            this.duration = duration;
+            this.duration = "3-4 hours";
             return this;
         }
 
         public Builder setPrice(double price) {
-            this.price = price;
+            this.price = 2500.00;
             return this;
         }
 
         public Builder setAdditionalServices(String additionalServices) {
-            this.additionalServices = additionalServices;
+            this.additionalServices = "LEATHER RESTORATION, ENGINE BAY CLEANING";
             return this;
         }
 
         public Builder copy(Deluxe deluxe) {
+            this.planId = deluxe.planId;
             this.interior = deluxe.interior;
             this.exterior = deluxe.exterior;
             this.duration = deluxe.duration;

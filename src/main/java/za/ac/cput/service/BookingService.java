@@ -4,7 +4,7 @@ import za.ac.cput.domain.Booking;
 
 import java.util.List;
 
-public interface BookingService extends IService<Booking, String>{
+public interface BookingService /*extends IService<Booking, String>*/{
     Booking create(Booking booking);
 
     Booking read(String id);

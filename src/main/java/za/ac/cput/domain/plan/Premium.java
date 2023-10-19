@@ -13,7 +13,10 @@ import java.io.Serializable;
 @Entity
 @IdClass(Plan.class)
 public class Premium extends Plan implements Serializable {
-    protected Premium(){}
+    public Premium(){}
+    protected Premium(String planId){
+        super(planId);
+    }
 
     private Premium(Builder builder){
         this.interior = builder.interior;
@@ -24,19 +27,12 @@ public class Premium extends Plan implements Serializable {
     }
 
 
-    @Override
-    void setAttributes() {
-        interior = "WASH, WAX, POLISH";
-        exterior = "VACCUM, WIPE-DOWN, UPHOLSTERY CLEANING";
-        duration = "2-3 hours";
-        price = 1500.00;
-        additionalServices = "LEATHER CONDITIONING, TIRE SHIRE";
-    }
 
 
     @Override
     public String displayPlan() {
         return "Premium{" +
+                "plaId='" + planId + '\'' +
                 "interior='" + interior + '\'' +
                 ", exterior='" + exterior + '\'' +
                 ", duration='" + duration + '\'' +
@@ -46,38 +42,45 @@ public class Premium extends Plan implements Serializable {
     }
 
     public static class Builder {
+        protected String planId;
         protected String interior;
         protected String exterior;
         protected String duration;
         protected double price;
         protected String additionalServices;
 
+        public Builder setPlanId(String planId) {
+            this.planId = planId;
+            return this;
+        }
+
         public Builder setInterior(String interior) {
-            this.interior = interior;
+            this.interior = "WASH, WAX, POLISH";
             return this;
         }
 
         public Builder setExterior(String exterior) {
-            this.exterior = exterior;
+            this.exterior = "VACCUM, WIPE-DOWN, UPHOLSTERY CLEANING";
             return this;
         }
 
         public Builder setDuration(String duration) {
-            this.duration = duration;
+            this.duration = "2-3 hours";
             return this;
         }
 
         public Builder setPrice(double price) {
-            this.price = price;
+            this.price = 1500.00;
             return this;
         }
 
         public Builder setAdditionalServices(String additionalServices) {
-            this.additionalServices = additionalServices;
+            this.additionalServices = "LEATHER CONDITIONING, TIRE SHIRE";
             return this;
         }
 
         public Builder copy(Premium premium){
+            this.planId = premium.planId;
             this.interior = premium.interior;
             this.exterior = premium.exterior;
             this.duration = premium.duration;

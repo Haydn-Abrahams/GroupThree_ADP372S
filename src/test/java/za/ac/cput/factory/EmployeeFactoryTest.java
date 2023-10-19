@@ -9,8 +9,9 @@ class EmployeeFactoryTest {
 
     @Test
     void createEmployee() {
-        Employee employee = EmployeeFactory.createEmployee(508941659, "John","Doe");
+        Employee employee = EmployeeFactory.createEmployee(1,"john","Doe","johndoepassword");
         System.out.println(employee.toString());
         assertNotNull(employee);
     }
+
 }
