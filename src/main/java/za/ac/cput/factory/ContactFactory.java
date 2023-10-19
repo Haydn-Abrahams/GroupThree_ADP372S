@@ -17,8 +17,8 @@ public class ContactFactory {
             return null;
         }
 
-        return new Contact.Builder().setcontactNumber(contactNumber)
-                .setalternativeNumber(alternativeNumber)
+        return new Contact.Builder().setContactNumber(contactNumber)
+                .setAlternativeNumber(alternativeNumber)
                 .setEmail(email)
                 .build();
 

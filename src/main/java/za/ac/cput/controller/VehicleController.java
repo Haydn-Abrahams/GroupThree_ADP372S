@@ -7,38 +7,38 @@ import za.ac.cput.factory.VehicleFactory;
 import za.ac.cput.service.VehicleService;
 
 import java.util.List;
-import java.util.Set;
+
 @RestController
 public class VehicleController {
 
     @Autowired
-    private VehicleService vehicleService;
-//po
+    private VehicleService VehicleService;
+
 
     @PostMapping("create")
     public Vehicle create(@RequestBody Vehicle vehicle) {
-        Vehicle newContact = VehicleFactory.createVehicle("CAA957", "John Hendricks", "toyota", "white","Audi");
-        return vehicleService.create(newContact);
+        Vehicle newContact = VehicleFactory.createVehicle("008", "CAA95", "John Hendricks", "audi","red","polo");
+        return VehicleService.create(newContact);
 
     }
 
     @GetMapping("/read{id}")
     public Vehicle read(@PathVariable String id) {
-        return vehicleService.read(id);
+        return VehicleService.read(id);
     }
 
     @PostMapping("/update")
     public Vehicle update(@RequestBody Vehicle contact) {
-        return vehicleService.update(contact);
+        return VehicleService.update(contact);
     }
 
     @DeleteMapping("delete/{id}")
     public boolean delete(@PathVariable String id) {
-        return vehicleService.delete(id);
+        return VehicleService.delete(id);
     }
 
     @GetMapping("/getall")
     public List<Vehicle> getall(){
-        return vehicleService.getAll();
+        return VehicleService.getAll();
     }
 }

@@ -10,9 +10,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import za.ac.cput.domain.Contact;
 import za.ac.cput.domain.Vehicle;
-import za.ac.cput.factory.ContactFactory;
 import za.ac.cput.factory.VehicleFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class VehicleControllerTest {
 
-    private static Vehicle vehicle = VehicleFactory.createVehicle("002154","John Hedricks","BMW","red","audi");
+    private static Vehicle vehicle = VehicleFactory.createVehicle("002154","John Hedricks","BMW","red","audi","GTI");
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -49,7 +47,7 @@ class VehicleControllerTest {
 
     @Test
     void c_update() {
-        Vehicle updated = new Vehicle.Builder().copy(vehicle).setlicensePlateNumber("AA258").build();
+        Vehicle updated = new Vehicle.Builder().copy(vehicle).setLicensePlateNumber("AA954").build();
         String url = baseURl + "/update";
         System.out.println("URL" + url);
         System.out.println("Post data:" + updated);
@@ -68,7 +66,7 @@ class VehicleControllerTest {
     @Test
     void e_getAll(){
 
-        String url = baseURl + "/getall";
+        String url = baseURl + "/getAll";
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>( null,headers);
         ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);

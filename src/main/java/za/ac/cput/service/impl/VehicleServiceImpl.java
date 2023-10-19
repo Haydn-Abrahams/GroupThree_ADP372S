@@ -5,19 +5,20 @@ import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Vehicle;
 
 import za.ac.cput.repository.VehicleRepository;
+import za.ac.cput.service.VehicleService;
 
 import java.util.List;
 @Service
 
-public class VehicleServiceImpl {
+public class VehicleServiceImpl implements VehicleService {
 
-    private static VehicleRepository repository;
+    private final VehicleRepository repository;
 
     @Autowired
 
     private VehicleServiceImpl(VehicleRepository repository)
     {
-        this.repository = repository = repository;
+        this.repository = repository;
     }
 
 

@@ -3,28 +3,36 @@ package za.ac.cput.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.domain.Contact;
-import za.ac.cput.factory.ContactFactory;
 import za.ac.cput.service.ContactService;
 
 import java.util.List;
 
 @RestController
+//@RequestMapping("/contact")
+
 public class ContactController {
 
-    @Autowired
-    private ContactService contactService;
+
+@Autowired
+    private   ContactService contactService;
 
 
-    @PostMapping("create")
+    public
+    ContactController(ContactService contactService){
+        this.contactService = contactService;
+    }
+
+
+    @PostMapping("/create")
     public Contact create(@RequestBody Contact contact) {
-        Contact newContact = ContactFactory.createContact("0789558745", "0625478958", "willams@mycput.ac.za");
-        return contactService.create(newContact);
+
+        return contactService.create(contact);
 
     }
 
-    @GetMapping("/read{id}")
-    public Contact read(@PathVariable String id) {
-        return contactService.read(id);
+    @GetMapping("/read{email}")
+    public Contact read(@PathVariable String email) {
+        return contactService.read(email);
     }
 
     @PostMapping("/update")
@@ -32,9 +40,9 @@ public class ContactController {
         return contactService.update(contact);
     }
 
-    @DeleteMapping("delete/{id}")
-    public boolean delete(@PathVariable String id) {
-        return contactService.delete(id);
+    @DeleteMapping("delete/{email}")
+    public boolean delete(@PathVariable String email) {
+        return contactService.delete(email);
     }
 
     @GetMapping("/getall")

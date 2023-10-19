@@ -3,7 +3,7 @@ package za.ac.cput.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Contact;
-import za.ac.cput.repository.ContactRepository;
+import za.ac.cput.repository.IContactRepository;
 import za.ac.cput.service.ContactService;
 
 import java.util.List;
@@ -13,11 +13,11 @@ public class ContactServiceImpl implements ContactService {
 
 // used jap to avoid seqeunce sequele statements
 
-    private static ContactRepository repository;
+    private final IContactRepository repository;
 
     @Autowired
-    private ContactServiceImpl(ContactRepository repository)
-    {this.repository = repository = repository;
+    public ContactServiceImpl(IContactRepository repository)
+    {this.repository = repository;
     }
 
 
@@ -32,9 +32,9 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public Contact update(Contact contact) {
-        if(repository.existsById(contact.getEmail()))
-            this.repository.save(contact);
+    public Contact update(Contact contact1) {
+        if(repository.existsById(contact1.getEmail()))
+            this.repository.save(contact1);
         return null;
     }
 
