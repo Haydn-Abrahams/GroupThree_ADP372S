@@ -4,41 +4,45 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.domain.Vehicle;
 import za.ac.cput.factory.VehicleFactory;
-import za.ac.cput.service.VehicleService;
+import za.ac.cput.service.IVehicleService;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/vehicle")
 public class VehicleController {
 
     @Autowired
-    private VehicleService VehicleService;
+    private IVehicleService vehicleService;
 
+    public
+    VehicleController(IVehicleService vehicleService){
+        this.vehicleService = vehicleService;
+    }
 
     @PostMapping("create")
     public Vehicle create(@RequestBody Vehicle vehicle) {
-        Vehicle newContact = VehicleFactory.createVehicle("008", "CAA95", "John Hendricks", "audi","red","polo");
-        return VehicleService.create(newContact);
+        return vehicleService.create(vehicle);
 
     }
 
     @GetMapping("/read{id}")
     public Vehicle read(@PathVariable String id) {
-        return VehicleService.read(id);
+        return vehicleService.read(id);
     }
 
     @PostMapping("/update")
     public Vehicle update(@RequestBody Vehicle contact) {
-        return VehicleService.update(contact);
+        return vehicleService.update(contact);
     }
 
     @DeleteMapping("delete/{id}")
     public boolean delete(@PathVariable String id) {
-        return VehicleService.delete(id);
+        return vehicleService.delete(id);
     }
 
     @GetMapping("/getall")
     public List<Vehicle> getall(){
-        return VehicleService.getAll();
+        return vehicleService.getAll();
     }
 }

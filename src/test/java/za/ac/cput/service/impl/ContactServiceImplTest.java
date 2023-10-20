@@ -3,22 +3,22 @@ package za.ac.cput.service.impl;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.Contact;
-import za.ac.cput.domain.Vehicle;
+
 import za.ac.cput.factory.ContactFactory;
-import za.ac.cput.factory.VehicleFactory;
-import za.ac.cput.service.ContactService;
-import za.ac.cput.service.VehicleService;
+
+import za.ac.cput.service.IContactService;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ContactServiceImplTest {
-    private ContactService contactService;
+    private IContactService contactService;
 
     private static Contact contact=
-           ContactFactory.createContact("0785485954","0816957842","joyray08@gmail.com");
+           ContactFactory.createContact("0785485954","0816957842","joymonarg08@gmail.com");
 
 
-    ContactServiceImplTest(ContactService contactService) {
+    ContactServiceImplTest(IContactService contactService) {
         this.contactService = contactService;
     }
 

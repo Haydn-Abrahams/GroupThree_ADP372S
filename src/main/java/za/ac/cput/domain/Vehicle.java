@@ -13,20 +13,20 @@ import java.util.Objects;
 
 public class Vehicle implements Serializable {
 
-@Id
-        private String registrationNumber;
-        private String licensePlateNumber;
-        private String ownershipStatus;
+    @Id
+    private String registrationNumber;
+    private String licensePlateNumber;
+    private String ownershipStatus;
 
-        private String make;
+    private String make;
 
-        private String model;
+    private String model;
 
-        private String color;
+    private String color;
 
-        public Vehicle(){
+    public Vehicle(){
 
-        }
+    }
 
     public Vehicle(String registrationNumber, String licensePlateNumber, String ownershipStatus, String make, String model, String color) {
         this.registrationNumber = registrationNumber;
@@ -38,12 +38,12 @@ public class Vehicle implements Serializable {
     }
 
     private Vehicle(Builder builder){
-            this.registrationNumber = builder.registrationNumber;
-            this.licensePlateNumber = builder.licensePlateNumber;
-            this.ownershipStatus = builder.ownershipStatus;
-            this.make = builder.make;
-            this.model = builder.model;
-            this.color = builder.color;
+        this.registrationNumber = builder.registrationNumber;
+        this.licensePlateNumber = builder.licensePlateNumber;
+        this.ownershipStatus = builder.ownershipStatus;
+        this.make = builder.make;
+        this.model = builder.model;
+        this.color = builder.color;
 
     }
 
@@ -107,42 +107,42 @@ public class Vehicle implements Serializable {
         private String color;
 
 
-    public Builder setRegistrationNumber(String registrationNumber) {
-        this.registrationNumber = registrationNumber;
-        return this;
-    }
-    public Builder setLicensePlateNumber(String licensePlateNumber) {
-        this.licensePlateNumber = licensePlateNumber;
-        return this;
+        public Builder setRegistrationNumber(String registrationNumber) {
+            this.registrationNumber = registrationNumber;
+            return this;
+        }
+        public Builder setLicensePlateNumber(String licensePlateNumber) {
+            this.licensePlateNumber = licensePlateNumber;
+            return this;
         }
 
         public Builder setOwnershipStatus(String ownershipStatus) {
-        this.ownershipStatus = ownershipStatus;
-        return this;
-    }
-    public Builder setMake(String make) {
-        this.make = make;
-        return this;
-    }
-    public Builder setModel(String model) {
-        this.model = model;
-        return this;
-    }
-    public Builder setColor(String color) {
-        this.color = color;
-        return this;
-    }
-    public Builder copy(Vehicle vehicle){
-        this.registrationNumber = vehicle.registrationNumber;
-        this.licensePlateNumber= vehicle.licensePlateNumber;
-        this.ownershipStatus = vehicle.ownershipStatus;
-        this.make= vehicle.make;
-        this.model= vehicle.model;
-        this.color= vehicle.color;
+            this.ownershipStatus = ownershipStatus;
+            return this;
+        }
+        public Builder setMake(String make) {
+            this.make = make;
+            return this;
+        }
+        public Builder setModel(String model) {
+            this.model = model;
+            return this;
+        }
+        public Builder setColor(String color) {
+            this.color = color;
+            return this;
+        }
+        public Builder copy(Vehicle vehicle){
+            this.registrationNumber = vehicle.registrationNumber;
+            this.licensePlateNumber= vehicle.licensePlateNumber;
+            this.ownershipStatus = vehicle.ownershipStatus;
+            this.make= vehicle.make;
+            this.model= vehicle.model;
+            this.color= vehicle.color;
 
-        return this;
-    }
+            return this;
+        }
 
-    public Vehicle build(){return  new Vehicle(this);}
-}
+        public Vehicle build(){return  new Vehicle(this);}
+    }
 }

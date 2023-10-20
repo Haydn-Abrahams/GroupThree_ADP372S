@@ -7,7 +7,7 @@ import za.ac.cput.domain.Vehicle;
 
 import za.ac.cput.factory.VehicleFactory;
 
-import za.ac.cput.service.VehicleService;
+import za.ac.cput.service.IVehicleService;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,13 +17,13 @@ class VehicleServiceImplTest {
 
 
 
-    private VehicleService  vehicleService;
+    private IVehicleService  vehicleService;
 
     private static Vehicle vehicle=
-            VehicleFactory.createVehicle("008","CAA89","John Doe","Audi","white","GTI");
+            VehicleFactory.createVehicle("4758","CAA89","John Doe","Audi","white","GTI");
 
 
-    VehicleServiceImplTest(VehicleService vehicleService) {
+    VehicleServiceImplTest(IVehicleService vehicleService) {
         this.vehicleService = vehicleService;
     }
 
