@@ -21,16 +21,16 @@ public class PayrollController {
         return service.create(payroll);
     }
     @GetMapping("/read{id}")
-    public Payroll read(@PathVariable String employeeCode) {
-        return service.read(String.valueOf(employeeCode));
+    public Payroll read(@PathVariable String paymentID) {
+        return service.read(String.valueOf(paymentID));
     }
     @PostMapping("/update")
     public Payroll update(@RequestBody Payroll payroll) {
         return service.update(payroll);
     }
-    @DeleteMapping("/delete{employeeCode}")
-    public boolean delete(@PathVariable String employeeCode) {
-        return service.delete(employeeCode);
+    @DeleteMapping("/delete{paymentID}")
+    public boolean delete(@PathVariable String paymentID) {
+        return service.delete(paymentID);
     }
     @GetMapping("/getAll")
     public List<Payroll> getAll() {

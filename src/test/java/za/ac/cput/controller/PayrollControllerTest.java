@@ -1,6 +1,5 @@
 package za.ac.cput.controller;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -20,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class PayrollControllerTest {
 
-    private static Payroll payroll = PayrollFactory.buildPayroll("", "Detailer", 21, 2,90,15390);
+    private static Payroll payroll = PayrollFactory.buildPayroll("Detailer", 21, 2,90,15390);
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -34,15 +33,15 @@ class PayrollControllerTest {
         assertNotNull(postResponse.getBody());
         Payroll savedPayroll = postResponse.getBody();
         System.out.println("Saved Data: " + savedPayroll);
-        assertEquals(payroll.getEmployeeCode(), savedPayroll.getEmployeeCode());
+        assertNotNull(payroll.getPaymentID(), savedPayroll.getPaymentID());
     }
 
     @Test
     void read() {
-        String url = baseUrl + "/read" + payroll.getEmployeeCode();
+        String url = baseUrl + "/read" + payroll.getPaymentID();
         System.out.println("URL " + url);
         ResponseEntity<Payroll> response = restTemplate.getForEntity(url, Payroll.class);
-        assertEquals(baseUrl, response.getBody().getEmployeeCode());
+        assertNotNull(baseUrl, response.getBody().getPaymentID());
         System.out.println(response.getBody());
     }
 

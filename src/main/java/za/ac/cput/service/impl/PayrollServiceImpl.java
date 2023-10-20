@@ -22,22 +22,22 @@ public class PayrollServiceImpl implements PayrollService {
     }
 
     @Override
-    public Payroll read(String employeeCode) {
-        return this.repository.findById(employeeCode).orElse(null);
+    public Payroll read(String paymentID) {
+        return this.repository.findById(paymentID).orElse(null);
     }
 
     @Override
     public Payroll update(Payroll payroll) {
-        if(this.repository.existsById(payroll.getEmployeeCode())) {
+        if(this.repository.existsById(payroll.getPaymentID())) {
             return this.repository.save(payroll);
         }
         return null;
     }
 
     @Override
-    public boolean delete(String employeeCode) {
-        if (this.repository.existsById(employeeCode)) {
-            this.repository.deleteById(employeeCode);
+    public boolean delete(String paymentID) {
+        if (this.repository.existsById(paymentID)) {
+            this.repository.deleteById(paymentID);
             return true;
         }
         return false;
