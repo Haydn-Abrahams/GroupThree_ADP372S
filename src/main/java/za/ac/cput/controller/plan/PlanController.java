@@ -1,26 +1,43 @@
-/** PlanController.java
- *  This class sets the controller of the project
- *  Andrea Jacobs 218024266
- *  09 September 2023 */
-
 package za.ac.cput.controller.plan;
 
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import za.ac.cput.domain.plan.Plan;
-import za.ac.cput.service.impl.plan.PlanServiceImpl;
+import za.ac.cput.service.plan.PlanService;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("/plan")
+@RequestMapping("/api/")
 public class PlanController {
-    @Autowired
-    private PlanServiceImpl service;
+    private final PlanService service;
 
-    @GetMapping("/read{id}")
-    public Plan read(@PathVariable String planId) {
-        return (Plan) service.getAllPlans(planId);
+    @Autowired
+    public PlanController(PlanService service) {
+        this.service = service;
     }
+
+    @GetMapping("/getplan")
+    public List<Plan> getAllPlans() {
+        return service.getAllPlans();
+    }
+
+    @PostMapping
+    public Plan createPlan(@RequestBody Plan plan) {
+        return service.createPlan(plan);
+    }
+
+    @GetMapping("plan/{id}")
+    public ResponseEntity<Plan> getPlanById(@PathVariable Long planId) {
+        try {
+            Plan plan = service.getByPlanId(planId);
+            return ResponseEntity.ok(plan);
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
 }

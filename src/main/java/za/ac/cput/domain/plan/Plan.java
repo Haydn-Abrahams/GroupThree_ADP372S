@@ -1,54 +1,26 @@
-/** Plan.java
- *  This is an abstract class that sets the basic plan
- *  Andrea Jacobs 218024266
- *  08 September 2023 */
-
 package za.ac.cput.domain.plan;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
-import java.io.Serializable;
-
+import lombok.*;
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
-public abstract class Plan implements Serializable {
+public class Plan {
     @Id
-    protected String planId;
-    protected String interior;
-    protected String exterior;
-    protected String duration;
-    protected double price;
-    protected String additionalServices;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    public Plan(){}
-
-    public Plan(String planId){
-        this.planId = planId;
-    }
-
-    public abstract String displayPlan();
-
-    public String getPlanId() {
-        return planId;
-    }
-
-    public String getInterior() {
-        return interior;
-    }
-
-    public String getExterior() {
-        return exterior;
-    }
-
-    public String getDuration() {
-        return duration;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public String getAdditionalServices() {
-        return additionalServices;
-    }
+    private String name;
+    private String exterior;
+    private String interior;
+    private String duration;
+    private double price;
+    private String additionalServices;
 }
+

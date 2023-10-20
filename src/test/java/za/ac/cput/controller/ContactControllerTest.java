@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.*;
-import za.ac.cput.domain.Contact;
-import za.ac.cput.factory.ContactFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 
