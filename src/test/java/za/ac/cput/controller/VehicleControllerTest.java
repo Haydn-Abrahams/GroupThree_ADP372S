@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class VehicleControllerTest {
 
-    private static Vehicle vehicle = VehicleFactory.createVehicle("002154","John Hedricks","BMW","red","audi","GTI");
+    private static Vehicle vehicle = VehicleFactory.createVehicle("002154","CAA 10938","BMW","Red","Audi A1");
 
     @Autowired
     private TestRestTemplate restTemplate;

@@ -19,7 +19,7 @@ class VehicleServiceImplTest {
     @Autowired
     private VehicleService vehicleService;
 
-    private static Vehicle vehicle= VehicleFactory.createVehicle("4758","CAA89","John Doe","Audi","white","GTI");
+    private static Vehicle vehicle= VehicleFactory.createVehicle("4758","CAA89","BMW","Audi","white");
 
     @Test
     void a_create() {
@@ -39,7 +39,7 @@ class VehicleServiceImplTest {
     @Test
     void update() {
 
-        Vehicle newVehicle = new  Vehicle.Builder().copy(vehicle).setRegistrationNumber("Updated RegistrationNumber").setLicensePlateNumber("Updated LicensePlateNumber").setOwnershipStatus("OwnershipStatus").setMake("Updated Mark").setModel("Updated Model").setColor("Updated Color").build();
+        Vehicle newVehicle = new  Vehicle.Builder().copy(vehicle).setRegistrationNumber("Updated RegistrationNumber").setLicensePlateNumber("Updated LicensePlateNumber").setManufacturer("Updated Mark").setModel("Updated Model").setColor("Updated Color").build();
         Vehicle updated = vehicleService.update(newVehicle);
         assertNotNull(updated);
         System.out.println("Updated"+ updated);
