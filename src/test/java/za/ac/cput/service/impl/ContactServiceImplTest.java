@@ -9,8 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Contact;
 
 import za.ac.cput.factory.ContactFactory;
-
-import za.ac.cput.service.IContactService;
+import za.ac.cput.service.ContactService;
 
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -19,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class ContactServiceImplTest {
     @Autowired
-    private IContactService contactService;
+    private ContactService contactService;
 
     private static Contact contact= ContactFactory.createContact("0785485954","0816957842","joymonarg08@gmail.com");
     @Test

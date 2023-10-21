@@ -3,7 +3,7 @@ package za.ac.cput.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.domain.Contact;
-import za.ac.cput.service.IContactService;
+import za.ac.cput.service.ContactService;
 
 import java.util.List;
 
@@ -12,13 +12,11 @@ import java.util.List;
 
 public class ContactController {
 
-
     @Autowired
-    private   IContactService contactService;
-
+    private ContactService contactService;
 
     public
-    ContactController(IContactService contactService){
+    ContactController(ContactService contactService){
         this.contactService = contactService;
     }
 

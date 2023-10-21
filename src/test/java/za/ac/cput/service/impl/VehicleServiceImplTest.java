@@ -1,6 +1,5 @@
 package za.ac.cput.service.impl;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 
@@ -10,8 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Vehicle;
 
 import za.ac.cput.factory.VehicleFactory;
-
-import za.ac.cput.service.IVehicleService;
+import za.ac.cput.service.VehicleService;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -19,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class VehicleServiceImplTest {
     @Autowired
-    private IVehicleService  vehicleService;
+    private VehicleService vehicleService;
 
     private static Vehicle vehicle= VehicleFactory.createVehicle("4758","CAA89","John Doe","Audi","white","GTI");
 

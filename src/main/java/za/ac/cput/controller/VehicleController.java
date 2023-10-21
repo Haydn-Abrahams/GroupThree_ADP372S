@@ -3,8 +3,7 @@ package za.ac.cput.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.domain.Vehicle;
-import za.ac.cput.factory.VehicleFactory;
-import za.ac.cput.service.IVehicleService;
+import za.ac.cput.service.VehicleService;
 
 import java.util.List;
 
@@ -13,10 +12,10 @@ import java.util.List;
 public class VehicleController {
 
     @Autowired
-    private IVehicleService vehicleService;
+    private VehicleService vehicleService;
 
     public
-    VehicleController(IVehicleService vehicleService){
+    VehicleController(VehicleService vehicleService){
         this.vehicleService = vehicleService;
     }
 
