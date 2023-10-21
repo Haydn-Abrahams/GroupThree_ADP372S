@@ -5,7 +5,7 @@ import za.ac.cput.service.IService;
 
 import java.util.List;
 
-public interface IVehicleService extends IService<Vehicle, String> {
+public interface IVehicleService {
 
     Vehicle create(Vehicle vehicle);
 

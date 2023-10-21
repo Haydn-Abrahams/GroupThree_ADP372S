@@ -1,7 +1,11 @@
 package za.ac.cput.service.impl;
 
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Contact;
 
 import za.ac.cput.factory.ContactFactory;
@@ -11,17 +15,13 @@ import za.ac.cput.service.IContactService;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@TestMethodOrder(MethodOrderer.MethodName.class)
+@SpringBootTest
 class ContactServiceImplTest {
+    @Autowired
     private IContactService contactService;
 
-    private static Contact contact=
-           ContactFactory.createContact("0785485954","0816957842","joymonarg08@gmail.com");
-
-
-    ContactServiceImplTest(IContactService contactService) {
-        this.contactService = contactService;
-    }
-
+    private static Contact contact= ContactFactory.createContact("0785485954","0816957842","joymonarg08@gmail.com");
     @Test
     void a_create() {
         Contact created = contactService.create(contact);
@@ -47,7 +47,10 @@ class ContactServiceImplTest {
     }
     @Disabled
     @Test
-    void e_delete(){}
+    void e_delete() {
+        boolean deleted = contactService.delete(contact.getEmail());
+        System.out.println("Deleted: " + deleted);
+    }
 
     @Test
     void getAll() {

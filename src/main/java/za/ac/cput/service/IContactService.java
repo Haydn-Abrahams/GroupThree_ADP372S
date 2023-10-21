@@ -5,7 +5,7 @@ import za.ac.cput.domain.Contact;
 
 import java.util.List;
 
-public interface IContactService extends IService<Contact, String>{
+public interface IContactService {
 
     Contact create(Contact contact);
 

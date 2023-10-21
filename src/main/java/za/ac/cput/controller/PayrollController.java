@@ -16,16 +16,16 @@ public class PayrollController {
     @Autowired
     public PayrollController(PayrollService service) {this.service = service;}
 
-    @PostMapping("/create")
-    public Payroll create(@RequestBody Payroll payroll) {
+    @PostMapping("/create{paymentID}")
+    public Payroll create(@PathVariable String paymentID, @RequestBody Payroll payroll) {
         return service.create(payroll);
     }
     @GetMapping("/read{id}")
     public Payroll read(@PathVariable String paymentID) {
         return service.read(String.valueOf(paymentID));
     }
-    @PostMapping("/update")
-    public Payroll update(@RequestBody Payroll payroll) {
+    @PostMapping("/update{paymentID}")
+    public Payroll update(@PathVariable String paymentID, @RequestBody Payroll payroll) {
         return service.update(payroll);
     }
     @DeleteMapping("/delete{paymentID}")
