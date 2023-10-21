@@ -3,20 +3,18 @@ package za.ac.cput.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Vehicle;
-
-import za.ac.cput.repository.VehicleRepository;
-import za.ac.cput.service.VehicleService;
-
+import za.ac.cput.repository.IVehicleRepository;
+import za.ac.cput.service.IVehicleService;
 import java.util.List;
+
 @Service
+public class VehicleServiceImpl implements IVehicleService {
 
-public class VehicleServiceImpl implements VehicleService {
-
-    private final VehicleRepository repository;
+    private final IVehicleRepository repository;
 
     @Autowired
 
-    private VehicleServiceImpl(VehicleRepository repository)
+    private VehicleServiceImpl(IVehicleRepository repository)
     {
         this.repository = repository;
     }
@@ -52,4 +50,3 @@ public class VehicleServiceImpl implements VehicleService {
         return this.repository.findAll();
     }
 }
-

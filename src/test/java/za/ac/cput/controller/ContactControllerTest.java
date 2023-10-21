@@ -9,7 +9,6 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.*;
 import za.ac.cput.domain.Contact;
 import za.ac.cput.factory.ContactFactory;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -17,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class ContactControllerTest {
 
-    public static Contact contact = ContactFactory.createContact("0795871484","0698785478","abrahamsallie@gmail.com");
+    public static Contact contact = ContactFactory.createContact("07952788784","0698785478","abrahamsallie@gmail.com");
 
     @Autowired
     private TestRestTemplate restTemplate;

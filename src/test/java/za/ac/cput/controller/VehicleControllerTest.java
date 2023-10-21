@@ -1,5 +1,4 @@
 package za.ac.cput.controller;
-
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -23,7 +22,7 @@ class VehicleControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
-    private final String baseURl = "http//local:8080/contact";
+    private final String baseURl = "http//local:8080/vehicle";
 
     @Test
     void a_create(){
@@ -34,7 +33,6 @@ class VehicleControllerTest {
         Vehicle savedVehicle = postResponse.getBody();
         System.out.println("saved" + savedVehicle);
         assertEquals(vehicle.getRegistrationNumber(), savedVehicle.getRegistrationNumber());
-
     }
     @Test
     void b_read(){
