@@ -8,19 +8,20 @@ import java.sql.Time;
 import java.util.Date;
 
 public class BookingFactory {
-    public static Booking buildBooking(Date date, Time time, String customerId){
-        if(Helper.isNullorEmpty(String.valueOf(date)) || Helper.isNullorEmpty(String.valueOf(time)) || Helper.isNullorEmpty(customerId)){
+    public Booking createBooking(String planName, String date, String time, String email){
+        if(Helper.isNullorEmpty(planName) || (Helper.isNullorEmpty(date)) || (Helper.isNullorEmpty(time)) || (Helper.isValidEmail(email))){
             return null;
         }
 
-        String id = Helper.generateID();
+        String bookingId = Helper.generateID();
 
-
-        return new Booking.Builder().setBookingId(id)
-                .setCustomerId(customerId)
-                .setDate(date)
-                .setTime(time)
+        return Booking.builder()
+                .bookingId(bookingId)
+                .planName(planName)
+                .date(date)
+                .time(time)
+                .email(email)
                 .build();
     }
-}
 
+}

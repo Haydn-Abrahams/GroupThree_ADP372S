@@ -1,25 +1,38 @@
 package za.ac.cput.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.domain.Booking;
 import za.ac.cput.service.BookingService;
+import za.ac.cput.service.impl.BookingServiceImpl;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/booking")
+@RequestMapping("/api/bookings")
 public class BookingController {
-    private BookingService bookingService;
+    private BookingServiceImpl bookingService;
 
     @Autowired
-    public BookingController(BookingService bookingService) {
+    public BookingController(BookingServiceImpl bookingService) {
         this.bookingService = bookingService;
     }
 
-    @PostMapping("/create")
-    public Booking create(@RequestBody Booking booking) {
-        return bookingService.create(booking);
+    @CrossOrigin(origins = "http://localhost:8081")
+    @PostMapping("/save")
+    public ResponseEntity<String> saveBooking(@RequestBody Booking booking) {
+        try {
+            // Validate the booking data, perform any necessary business logic, and save it
+            Booking savedBooking = bookingService.create(booking);
+
+            // Return a success response
+            return new ResponseEntity<>("Booking saved with ID: " + savedBooking.getPlanName(), HttpStatus.CREATED);
+        } catch (Exception e) {
+            // Handle any exceptions that may occur during the booking save process
+            return new ResponseEntity<>("Error saving booking: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @GetMapping("/read/{bookingId}")

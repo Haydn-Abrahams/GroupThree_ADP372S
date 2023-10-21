@@ -22,7 +22,7 @@ public class PlanService {
         return repository.findAll();
     }
 
-    public Plan createPlan(Plan plan) {
+    public Plan save(Plan plan) {
         return repository.save(plan);
     }
 

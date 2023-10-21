@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class BookingServiceImpl implements BookingService {
+public class BookingServiceImpl/*implements BookingService*/ {
     private IBookingRepository repository;
 
     @Autowired
@@ -21,17 +21,17 @@ public class BookingServiceImpl implements BookingService {
     }
 
 
-    @Override
+    //@Override
     public Booking create(Booking booking) {
         return this.repository.save(booking);
     }
 
-    @Override
+    //@Override
     public Booking read(String bookingId) {
         return repository.findById(bookingId).orElse(null);
     }
 
-    @Override
+    //@Override
     public Booking update(Booking booking) {
         if(repository.existsById(booking.getBookingId())){
             return repository.save(booking);
@@ -39,7 +39,7 @@ public class BookingServiceImpl implements BookingService {
         return null;
     }
 
-    @Override
+    //@Override
     public boolean delete(String bookingId) {
         if(this.repository.existsById(bookingId)){
             this.repository.deleteById(bookingId);
@@ -48,7 +48,7 @@ public class BookingServiceImpl implements BookingService {
         return false;
     }
 
-    @Override
+    //@Override
     public List<Booking> getAll() {
         return this.repository.findAll();
     }

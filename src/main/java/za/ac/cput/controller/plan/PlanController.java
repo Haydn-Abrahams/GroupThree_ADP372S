@@ -10,7 +10,7 @@ import za.ac.cput.service.plan.PlanService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/api/plan")
 public class PlanController {
     private final PlanService service;
 
@@ -20,24 +20,12 @@ public class PlanController {
     }
 
     @GetMapping("/getplan")
+    //@CrossOrigin(origins = "http://localhost:8081") // Allow requests from http://localhost:8081
     public List<Plan> getAllPlans() {
         return service.getAllPlans();
     }
 
-    @PostMapping
     public Plan createPlan(@RequestBody Plan plan) {
-        return service.createPlan(plan);
+        return service.save(plan);
     }
-
-    @GetMapping("plan/{id}")
-    public ResponseEntity<Plan> getPlanById(@PathVariable Long planId) {
-        try {
-            Plan plan = service.getByPlanId(planId);
-            return ResponseEntity.ok(plan);
-        } catch (EntityNotFoundException e) {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-
 }
