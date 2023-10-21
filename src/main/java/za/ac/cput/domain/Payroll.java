@@ -10,8 +10,8 @@ import java.util.Objects;
 @Entity
 public class Payroll implements Serializable {
     @Id
-    @Column(name = "employee_Code")
-    private String employeeCode;
+    //@Column(name = "paymentID")
+    private String paymentID;
     private String title;
     private int totalDaysWorked;
     private int overtime;
@@ -20,8 +20,8 @@ public class Payroll implements Serializable {
 
     protected Payroll() {}
 
-    public Payroll(String employeeCode, String title, int totalDaysWorked, int overtime, int hourlyRate, double salaryAmount) {
-        this.employeeCode = employeeCode;
+    public Payroll(String paymentID, String title, int totalDaysWorked, int overtime, int hourlyRate, double salaryAmount) {
+        this.paymentID = paymentID;
         this.title = title;
         this.totalDaysWorked = totalDaysWorked;
         this.overtime = overtime;
@@ -30,7 +30,7 @@ public class Payroll implements Serializable {
     }
 
     public Payroll(Builder builder) {
-        this.employeeCode = builder.employeeCode;
+        this.paymentID = builder.paymentID;
         this.title = builder.title;
         this.totalDaysWorked = builder.totalDaysWorked;
         this.overtime = builder.overtime;
@@ -38,8 +38,8 @@ public class Payroll implements Serializable {
         this.salaryAmount = builder.salaryAmount;
     }
 
-    public String getEmployeeCode() {
-        return employeeCode;
+    public String getPaymentID() {
+        return paymentID;
     }
 
     public String getTitle() {
@@ -67,18 +67,18 @@ public class Payroll implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Payroll payroll = (Payroll) o;
-        return totalDaysWorked == payroll.totalDaysWorked && overtime == payroll.overtime && hourlyRate == payroll.hourlyRate && Double.compare(payroll.salaryAmount, salaryAmount) == 0 && Objects.equals(employeeCode, payroll.employeeCode) && Objects.equals(title, payroll.title);
+        return totalDaysWorked == payroll.totalDaysWorked && overtime == payroll.overtime && hourlyRate == payroll.hourlyRate && Double.compare(payroll.salaryAmount, salaryAmount) == 0 && Objects.equals(paymentID, payroll.paymentID) && Objects.equals(title, payroll.title);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(employeeCode, title, totalDaysWorked, overtime, hourlyRate, salaryAmount);
+        return Objects.hash(paymentID, title, totalDaysWorked, overtime, hourlyRate, salaryAmount);
     }
 
     @Override
     public String toString() {
         return "Payroll{" +
-                "employeeCode='" + employeeCode + '\'' +
+                "PaymentID='" + paymentID + '\'' +
                 ", title='" + title + '\'' +
                 ", totalDaysWorked=" + totalDaysWorked +
                 ", overtime=" + overtime +
@@ -88,15 +88,15 @@ public class Payroll implements Serializable {
     }
 
     public static class Builder {
-        private String employeeCode;
+        private String paymentID;
         private String title;
         private int totalDaysWorked;
         private int overtime;
         private int hourlyRate;
         private double salaryAmount;
 
-        public Builder setEmployeeCode(String employeeCode) {
-            this.employeeCode = employeeCode;
+        public Builder setPaymentID(String paymentID) {
+            this.paymentID = paymentID;
             return this;
         }
 
@@ -125,7 +125,7 @@ public class Payroll implements Serializable {
             return this;
         }
         public Builder copy(Payroll payroll) {
-            this.employeeCode = payroll.employeeCode;
+            this.paymentID = payroll.paymentID;
             this.title = payroll.title;
             this.totalDaysWorked = payroll.totalDaysWorked;
             this.overtime = payroll.overtime;

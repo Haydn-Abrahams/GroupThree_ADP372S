@@ -11,10 +11,10 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@IdClass(Reward.class)
+//@IdClass(Reward.class)
 public class Reward implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private String rewardId;
     //private Customer customer;
     private Tier tier;

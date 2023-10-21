@@ -9,10 +9,10 @@ public interface PayrollService  {
 
     Payroll create(Payroll payroll);
 
-    Payroll read(String employeeCode);
+    Payroll read(String paymentID);
 
     Payroll update(Payroll payroll);
 
-    boolean delete(String employeeCode);
+    boolean delete(String paymentID);
     List<Payroll> getAll();
 }

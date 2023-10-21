@@ -6,6 +6,7 @@
 package za.ac.cput.controller.reward;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.domain.reward.Reward;
 import za.ac.cput.service.reward.RewardService;
@@ -17,6 +18,7 @@ import java.util.Set;
 @RestController
 public class RewardController {
 
+    @Qualifier("rewardService")
     private final RewardService service;
     @Autowired
     public RewardController(RewardService service) {

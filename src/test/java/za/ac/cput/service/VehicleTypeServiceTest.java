@@ -58,7 +58,7 @@ public class VehicleTypeServiceTest {
     @Order(5)
     void getAll(){
         List<VehicleType> vehicleTypes = vehicleTypeService.getAll();
-        assertNull(vehicleTypes);
+        assertNotNull(vehicleTypes);
         assertFalse(vehicleTypes.isEmpty());
     }
 }

@@ -9,7 +9,7 @@ class PayrollFactoryTest {
 
     @Test
     void buildPayroll() {
-        Payroll payroll1 =  PayrollFactory.buildPayroll("","Detailer", 23, 2, 90,16830.00);
+        Payroll payroll1 =  PayrollFactory.buildPayroll("Detailer", 23, 2, 90,16830.00);
         System.out.println(payroll1.toString());
         assertNotNull(payroll1);
     }
