@@ -58,7 +58,7 @@ class PayrollControllerTest {
 
     @Test
     void e_delete() {
-        String url = baseUrl + "/delete" + baseUrl;
+        String url = baseUrl + "/delete" + payroll.getPaymentID();
         System.out.println("URL " + url);
         restTemplate.delete(url);
     }

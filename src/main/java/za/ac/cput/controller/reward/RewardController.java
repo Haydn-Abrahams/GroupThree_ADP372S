@@ -21,7 +21,7 @@ public class RewardController {
     @Qualifier("rewardService")
     private final RewardService service;
     @Autowired
-    public RewardController(@Qualifier("rewardService") RewardService service) {
+    public RewardController(RewardService service) {
         this.service = service;
     }
 

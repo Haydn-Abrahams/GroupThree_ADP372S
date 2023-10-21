@@ -8,7 +8,7 @@ import za.ac.cput.service.PayrollService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/contact")
+@RequestMapping("/payroll")
 public class PayrollController {
 
 
@@ -20,7 +20,7 @@ public class PayrollController {
     public Payroll create(@PathVariable String paymentID, @RequestBody Payroll payroll) {
         return service.create(payroll);
     }
-    @GetMapping("/read{id}")
+    @GetMapping("/read{paymentID}")
     public Payroll read(@PathVariable String paymentID) {
         return service.read(String.valueOf(paymentID));
     }
