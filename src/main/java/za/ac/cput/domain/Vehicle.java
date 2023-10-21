@@ -18,7 +18,7 @@ public class Vehicle implements Serializable {
     private String licensePlateNumber;
     private String ownershipStatus;
 
-    private String make;
+    private String manufacturer;
 
     private String model;
 
@@ -28,11 +28,11 @@ public class Vehicle implements Serializable {
 
     }
 
-    public Vehicle(String registrationNumber, String licensePlateNumber, String ownershipStatus, String make, String model, String color) {
+    public Vehicle(String registrationNumber, String licensePlateNumber, String ownershipStatus, String manufacturer, String model, String color) {
         this.registrationNumber = registrationNumber;
         this.licensePlateNumber = licensePlateNumber;
         this.ownershipStatus = ownershipStatus;
-        this.make = make;
+        this.manufacturer = manufacturer;
         this.model = model;
         this.color = color;
     }
@@ -41,7 +41,7 @@ public class Vehicle implements Serializable {
         this.registrationNumber = builder.registrationNumber;
         this.licensePlateNumber = builder.licensePlateNumber;
         this.ownershipStatus = builder.ownershipStatus;
-        this.make = builder.make;
+        this.manufacturer = builder.manufacturer;
         this.model = builder.model;
         this.color = builder.color;
 
@@ -59,8 +59,8 @@ public class Vehicle implements Serializable {
         return ownershipStatus;
     }
 
-    public String getMake() {
-        return make;
+    public String getManufacturer() {
+        return manufacturer;
     }
 
     public String getModel() {
@@ -76,12 +76,12 @@ public class Vehicle implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Vehicle vehicle = (Vehicle) o;
-        return Objects.equals(registrationNumber, vehicle.registrationNumber) && Objects.equals(licensePlateNumber, vehicle.licensePlateNumber) && Objects.equals(ownershipStatus, vehicle.ownershipStatus) && Objects.equals(make, vehicle.make) && Objects.equals(model, vehicle.model) && Objects.equals(color, vehicle.color);
+        return Objects.equals(registrationNumber, vehicle.registrationNumber) && Objects.equals(licensePlateNumber, vehicle.licensePlateNumber) && Objects.equals(ownershipStatus, vehicle.ownershipStatus) && Objects.equals(manufacturer, vehicle.manufacturer) && Objects.equals(model, vehicle.model) && Objects.equals(color, vehicle.color);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(registrationNumber, licensePlateNumber, ownershipStatus, make, model, color);
+        return Objects.hash(registrationNumber, licensePlateNumber, ownershipStatus, manufacturer, model, color);
     }
 
     @Override
@@ -90,7 +90,7 @@ public class Vehicle implements Serializable {
                 "registrationNumber='" + registrationNumber + '\'' +
                 ", licensePlateNumber='" + licensePlateNumber + '\'' +
                 ", ownershipStatus='" + ownershipStatus + '\'' +
-                ", make='" + make + '\'' +
+                ", manufacturer='" + manufacturer + '\'' +
                 ", model='" + model + '\'' +
                 ", color='" + color + '\'' +
                 '}';
@@ -102,7 +102,7 @@ public class Vehicle implements Serializable {
 
         private String licensePlateNumber;
         private String ownershipStatus;
-        private String make;
+        private String manufacturer;
         private String model;
         private String color;
 
@@ -120,8 +120,8 @@ public class Vehicle implements Serializable {
             this.ownershipStatus = ownershipStatus;
             return this;
         }
-        public Builder setMake(String make) {
-            this.make = make;
+        public Builder setMake(String manufacturer) {
+            this.manufacturer = manufacturer;
             return this;
         }
         public Builder setModel(String model) {
@@ -136,7 +136,7 @@ public class Vehicle implements Serializable {
             this.registrationNumber = vehicle.registrationNumber;
             this.licensePlateNumber= vehicle.licensePlateNumber;
             this.ownershipStatus = vehicle.ownershipStatus;
-            this.make= vehicle.make;
+            this.manufacturer= vehicle.manufacturer;
             this.model= vehicle.model;
             this.color= vehicle.color;
 
