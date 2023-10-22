@@ -8,6 +8,7 @@ import za.ac.cput.service.CustomerService;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/customers")
 public class CustomerController {
 

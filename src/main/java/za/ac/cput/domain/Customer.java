@@ -1,26 +1,41 @@
 package za.ac.cput.domain;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-
-import java.io.Serializable;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
+@Table(name="customers")
 public class Customer {
 
     @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name="customerId",columnDefinition = "varchar(36)", length = 36, updatable = false , nullable = false)
+    @NotNull
     private String customerId;
+
+    @NotNull
+    @Column(name="firstName", length = 255)
     private String firstName;
+    @NotNull
+    @Column(name="lastName", length = 255)
     private String lastName;
+    @NotNull
+    @Column(name="email", length = 255)
+    private String email;
+    @NotNull
+    @Column(name="password", length = 255)
     private String password;
 
     //Constructors
     public Customer(){  }
-    public Customer(String customerId, String firstName, String lastName, String password) {
+    public Customer(String firstName, String lastName, String email,String password) {
         this.customerId = customerId;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
         this.password = password;
     }
 
@@ -29,6 +44,7 @@ public class Customer {
         this.customerId = builder.customerId;
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
+        this.email = builder.email;
         this.password = builder.password;
     }
 
@@ -45,6 +61,9 @@ public class Customer {
         return lastName;
     }
 
+    public String getEmail() {
+        return email;
+    }
     public String getPassword() {
         return password;
     }
@@ -55,6 +74,7 @@ public class Customer {
                 "customerId='" + customerId + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }
@@ -65,6 +85,7 @@ public class Customer {
         private String customerId;
         private String firstName;
         private String lastName;
+        private String email;
         private String password;
 
         //Builder Setters
@@ -83,6 +104,11 @@ public class Customer {
             return this;
         }
 
+        public Builder setEmail (String email) {
+            this.email = email;
+            return this;
+        }
+
         public Builder setPassword(String password) {
             this.password = password;
             return this;
@@ -92,6 +118,7 @@ public class Customer {
             this.customerId= customer.customerId;
             this.firstName = customer.firstName;
             this.lastName= customer.lastName;
+            this.email= customer.email;
             this.password= customer.password;
             return this;
         }

@@ -18,7 +18,7 @@ class CustomerServiceImplTest {
     @Autowired
     private CustomerService customerService;
 
-    public static Customer customer = CustomerFactory.createCustomer("John", "Doe", "password123");
+    public static Customer customer = CustomerFactory.createCustomer("John", "Doe","doejohn282@gmail.com", "password123");
     @Test
     void a_create() {
         Customer created = customerService.create(customer);
