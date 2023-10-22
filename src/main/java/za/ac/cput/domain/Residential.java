@@ -16,6 +16,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class Residential implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "complex_seq_generator")
+    @SequenceGenerator(name = "complex_seq_generator", sequenceName = "complex_sequence", initialValue = 10000, allocationSize = 1)
     private Long id;
     @NotEmpty
     private String street_Address;
