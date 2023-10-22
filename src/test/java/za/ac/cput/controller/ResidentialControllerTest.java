@@ -28,7 +28,7 @@ class ResidentialControllerTest {
     @Test
     void create() {
         String url = baseURL + "/create";
-        ResponseEntity<Residential> postResponse = restTemplate.postForEntity(url, residential1, Residential.class);
+        ResponseEntity<Residential> postResponse = restTemplate.postForEntity(url, residential2, Residential.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
         Residential residential1 = postResponse.getBody();
@@ -39,15 +39,15 @@ class ResidentialControllerTest {
 
     @Test
     void read() {
-        String url = baseURL + "/read/" + residential1.getId();
+        String url = baseURL + "/read/" + residential2.getId();
         System.out.println("Read " + url);
         ResponseEntity<Residential> response = restTemplate.getForEntity(url, Residential.class);
-        assertEquals(residential1.getId(), response.getBody().getId());
+        assertEquals(residential2.getId(), response.getBody().getId());
     }
 
     @Test
     void update() {
-        Residential updatedResidential = residential1.toBuilder().street_Address("107 Klosser Street").build();
+        Residential updatedResidential = residential2.toBuilder().street_Address("12 Mango Street").build();
         String url = baseURL + "/update";
         System.out.println("URL " + url);
         ResponseEntity<Residential> response = restTemplate.postForEntity(url, updatedResidential, Residential.class);
@@ -56,7 +56,7 @@ class ResidentialControllerTest {
 
     @Test
     void delete() {
-        String url = baseURL + "/delete" + residential1.getId();
+        String url = baseURL + "/delete" + residential2.getId();
         System.out.println("URL " + url);
         restTemplate.delete(url);
     }

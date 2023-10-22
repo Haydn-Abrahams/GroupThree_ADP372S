@@ -8,6 +8,7 @@ import za.ac.cput.service.ResidentialService;
 import java.util.Set;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/residential")
 public class ResidentialController {
     @Autowired
@@ -23,7 +24,7 @@ public class ResidentialController {
     public Residential update(@RequestBody Residential residential){return residentialService.update(residential);}
     @DeleteMapping("delete/{id}")
     public boolean delete(@PathVariable Long id){return residentialService.deleteById(id);}
-    @RequestMapping({"/getAll"})
+    @GetMapping({"/getAll"})
     public Set<Residential> getAll(){
         return residentialService.getAll();
     }

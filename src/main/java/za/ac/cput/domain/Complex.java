@@ -1,8 +1,6 @@
 package za.ac.cput.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,13 +15,14 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class Complex implements Serializable{
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "complex_seq_generator")
+    @SequenceGenerator(name = "complex_seq_generator", sequenceName = "complex_sequence", initialValue = 10000, allocationSize = 1)
     private Long id;
     private String name;
     private String unit;
     private String floor;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REMOVE, orphanRemoval = true) //Trigger deletion of the associated entity
+    @JoinColumn(name = "base_address_id", referencedColumnName = "id")
     private BaseAddress baseAddress;
-//    @Builder.Default
-//    private boolean someFlag = true;
 
 }

@@ -1,8 +1,6 @@
 package za.ac.cput.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,6 +19,12 @@ public class Residential implements Serializable {
     private Long id;
     @NotEmpty
     private String street_Address;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REMOVE, orphanRemoval = true)
     private BaseAddress baseAddress;
+
+
 }
+
+//    @OneToOne
+//    @JoinColumn(name = "id")
+//    private User user;
