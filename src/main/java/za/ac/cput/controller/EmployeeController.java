@@ -6,7 +6,7 @@ import za.ac.cput.domain.Employee;
 import za.ac.cput.service.EmployeeService;
 
 import java.util.List;
-
+@CrossOrigin
 @RestController
 @RequestMapping("/employees")
 public class EmployeeController {

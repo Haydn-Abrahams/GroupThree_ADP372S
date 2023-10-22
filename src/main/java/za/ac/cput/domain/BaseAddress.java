@@ -15,6 +15,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class BaseAddress implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "base_address_seq_generator")
+    @SequenceGenerator(name = "base_address_seq_generator", sequenceName = "base_address_sequence", initialValue = 10000, allocationSize = 1)
     private Long id;
     @NotEmpty
     private String city;
